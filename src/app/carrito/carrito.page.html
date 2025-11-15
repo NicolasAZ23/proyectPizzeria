@@ -1,0 +1,54 @@
+<ion-header class="ion-no-border">
+     <ion-toolbar>
+    <ion-title>Tu Pedido</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+    <ion-card class="info-card" *ngIf="infoCliente">
+        <ion-card-header>
+            <ion-card-title>Detalles de la Mesa</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p>Cliente: <strong>{{ infoCliente.nombre }}</strong></p>
+             <p>Mesa: <strong>{{ infoCliente.mesa }}</strong> ({{ infoCliente.personas }} personas)</p>
+            <p *ngIf="infoCliente.comentarios">Comentarios: <em>{{ infoCliente.comentarios }}</em></p>
+         </ion-card-content>
+    </ion-card>
+
+<h2 class="section-title">Artículos:</h2>
+ 
+<ion-list lines="none" class="carrito-list">
+    <ion-item *ngFor="let item of items; let i = index" class="item-carrito">
+         
+        <div class="item-info">
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.cantidad }} x {{ item.price | currency:'USD':'symbol':'1.2-2' }}</p>
+        </div>
+     
+        <div class="item-total">
+            <span class="total-price">{{ item.price * item.cantidad | currency:'USD':'symbol':'1.2-2' }}</span>
+ 
+        </div>
+    </ion-item>
+ </ion-list>
+
+ <h2 class="section-title">Total</h2>
+ 
+<div class="resumen-cuenta">
+    <div class="linea total">
+        <strong>Total a Pagar:</strong>
+        <strong>{{ totalPagar | currency:'USD':'symbol':'1.2-2' }}</strong>
+     </div>
+</div>
+
+    <div class="action-buttons">
+        <ion-button expand="full" (click)="enviarPedido()">
+        Enviar Pedido y Pagar
+        </ion-button>
+        <ion-button expand="full" fill="clear" color="medium" (click)="continuarComprando()">
+        Seguir Añadiendo Productos
+        </ion-button>
+    </div>
+</ion-content>

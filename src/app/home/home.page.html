@@ -1,0 +1,103 @@
+<!-- Encabezado -->
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <!-- Saludo con nombre -->
+    <ion-title *ngIf="infoCliente">Buenas tardes, {{ infoCliente.nombre }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Contenido principal -->
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="header-content">
+    <h1>Elige tu pizza favorita, disfruta!</h1>
+    <!-- Info de mesa y personas -->
+    <p *ngIf="infoCliente">
+      Mesa: <strong>{{ infoCliente.mesa }}</strong> | 
+      Personas: <strong>{{ infoCliente.personas }}</strong>
+    </p>
+  </div>
+
+  <!-- Promociones -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Nuestras promociones</h2>
+      <ion-icon name="arrow-forward-outline"></ion-icon>
+    </div>
+
+    <div class="promotions-container">
+      <!-- Lista de promociones -->
+      <div *ngFor="let promo of promotions" class="promo-card">
+        <img [src]="promo.image" alt="{{ promo.name }}" />
+        <h3>{{ promo.name }}</h3>
+        <p>{{ promo.price | currency:'USD':'symbol':'1.2-2' }}</p>
+        
+        <!-- Controles de cantidad -->
+        <div class="quantity-controls">
+          <ion-button (click)="modificarCantidad(promo, -1)" fill="outline" size="small" shape="circle" [disabled]="promo.cantidad === 0">-</ion-button>
+          <span>{{ promo.cantidad }}</span>
+          <ion-button (click)="modificarCantidad(promo, 1)" fill="solid" size="small" shape="circle">+</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Categorías -->
+  <div class="section">
+    <div class="category-scroll-container">
+      <div class="category-wrapper">
+        <!-- Botones de categoría -->
+        <span *ngFor="let category of categories"
+          class="category-item"
+          [class.selected]="category.id === activeCategory"
+          (click)="filterArticles(category.id)">
+          {{ category.name }}
+        </span>
+      </div>
+    </div>
+    
+    <!-- Lista de artículos -->
+    <ion-list>
+      <ion-item *ngFor="let item of articles" lines="none" class="article-item-grid">
+        <div class="contenedor-principal">
+          <!-- Imagen -->
+          <div class="column-img article-info">
+            <ion-thumbnail slot="start">
+              <img [src]="item.image" alt="{{ item.name }}" />
+            </ion-thumbnail>
+          </div>
+          <!-- Descripción -->
+          <div class="column-description">
+            <ion-label>
+              <h3>{{ item.name }}</h3>
+            </ion-label>
+            <p>{{ item.description }}</p>
+          </div>
+        </div>
+
+        <!-- Precio y controles -->
+        <div class="contenedor-precio article-price">
+          <span class="price">{{ item.price | currency:'USD':'symbol':'1.2-2' }}</span>
+          <div class="quantity-controls vertical">
+            <ion-button (click)="modificarCantidad(item, 1)" fill="solid" size="small" shape="circle">+</ion-button>
+            <span>{{ item.cantidad }}</span>
+            <ion-button (click)="modificarCantidad(item, -1)" fill="outline" size="small" shape="circle" [disabled]="item.cantidad === 0">-</ion-button>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <!-- Sin artículos -->
+    <div *ngIf="articles.length === 0" class="empty-state">
+      <p>No hay productos en <strong>{{ activeCategory | titlecase }}</strong>.</p>
+      <p>Intenta con otra categoría.</p>
+    </div>
+  </div>
+</ion-content>
+
+<!-- Botón flotante del carrito -->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-button (click)="irAlCarrito()" shape="round" [disabled]="getCarritoTotalItems() === 0">
+    Ver Pedido
+    <ion-icon name="cart-outline" slot="end"></ion-icon>
+  </ion-button>
+</ion-fab>

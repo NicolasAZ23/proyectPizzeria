@@ -1,0 +1,175 @@
+/* ================================
+   Definición de colores globales
+   ================================ */
+:root {
+  /* Color principal (marrón) usado en textos, botones, etc. */
+  --primary-color: #5D4037; 
+
+  /* Color secundario (beige claro) usado en fondos */
+  --secondary-color: #EFEBE9;
+
+  /* Color de fondo general */
+  --background-color: #F8F3ED;
+
+  /* Color de fondo de los botones */
+  --button-color: #EADBC8;
+
+  /* Color del texto de los botones */
+  --button-text-color: #5D4037;
+
+  /* Color del borde de los inputs */
+  --input-border-color: #D7CCC8;
+}
+
+/* ================================
+   Estilos generales del contenido
+   ================================ */
+ion-content {
+  /* Fondo principal del contenido */
+  --background: var(--background-color);
+
+  /* Color del texto general */
+  color: var(--primary-color);
+
+  /* Fuente general de la página */
+  font-family: 'Inter', sans-serif;
+}
+
+/* Fondo para áreas con padding interno de Ionic */
+.ion-padding {
+  background-color: #EFEBE9;
+}
+
+/* ================================
+   Contenedor principal del login
+   ================================ */
+.login-container {
+  /* Centra el contenido vertical y horizontalmente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  /* Antes tenía una altura fija del 60%, se eliminó
+     para permitir que el contenido crezca naturalmente */
+  padding: 2rem 0; /* Se añade espacio superior e inferior */
+}
+
+/* ================================
+   Título del encabezado
+   ================================ */
+.header-title h1 {
+  font-size: 2.5rem;  /* Tamaño grande para el título */
+  font-weight: bold;  /* Negrita */
+  color: #5D4037;     /* Marrón principal */
+  margin-bottom: 40px; /* Espaciado inferior */
+}
+
+/* ================================
+   Contenedor del formulario
+   ================================ */
+.form-container {
+  width: 100%;
+  max-width: 350px; /* Limita el ancho para mantener buena proporción */
+
+  h2 {
+    /* Subtítulo o encabezado del formulario */
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #5D4037;
+  }
+
+  p {
+    /* Texto descriptivo o subtítulo adicional */
+    color: #8D6E63;
+    margin-bottom: 2rem;
+  }
+}
+
+/* ================================
+   Campos de entrada personalizados
+   ================================ */
+.custom-input {
+  /* Bordes redondeados en los inputs */
+  --border-radius: 12px !important;
+
+  /* Color del borde cuando no está enfocado */
+  --border-color: var(--input-border-color);
+
+  /* Color del borde cuando el input está enfocado */
+  --highlight-color-focused: var(--primary-color);
+
+  /* Fondo blanco para el campo de entrada */
+  --background: #ffffff;
+
+  margin-bottom: 1.5rem; /* Espaciado inferior entre inputs */
+  
+  /* Color del texto de las etiquetas */
+  color: black;
+
+  .native-input {
+    /* Color del texto que escribe el usuario */
+    color: var(--primary-color);
+  }
+}
+
+/* ================================
+   Botón principal de acción
+   ================================ */
+ion-button {
+  /* Fondo del botón */
+  --background: #5D4037;
+
+  /* Texto del botón en negro */
+  --color: #000000;
+
+  /* Bordes redondeados */
+  --border-radius: 12px;
+
+  /* Sin sombras */
+  --box-shadow: none;
+
+  /* Altura y tipografía */
+  height: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: none; /* No convierte el texto a mayúsculas */
+}
+
+/* ================================
+   Pie de página (footer)
+   ================================ */
+.footer-info {
+  /* Fondo beige claro */
+  background-color: #fce6cc;
+
+  /* Texto marrón */
+  color: #5D4037;
+
+  /* Espaciado interno y esquinas redondeadas superiores */
+  padding: 20px;
+  border-radius: 20px 20px 0 0;
+
+ 
+  width: 100%; /* Mantiene ancho completo */
+
+  /* Sombra sutil en la parte superior */
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+
+  /* Espaciado superior para separarlo del botón */
+  margin-top: 3rem;
+
+  h3 {
+    /* Título dentro del footer */
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 0;
+  }
+
+  p {
+    /* Texto informativo dentro del footer */
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}

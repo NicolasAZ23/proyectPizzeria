@@ -1,0 +1,86 @@
+<!-- Contenido principal -->
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="login-container">
+    
+    <!-- Título principal -->
+    <div class="header-title">
+      <h1>Pizzeria Estefano</h1>
+    </div>
+
+    <!-- Formulario de ingreso -->
+    <div class="form-container">
+      <h2>Ingresa los datos del pedido</h2>
+      <p>Necesitamos estos datos para saber quién eres y dónde estás.</p>
+
+      <!-- Campo: nombre del cliente -->
+      <ion-input
+        class="custom-input"
+        label="Nombre del Cliente"
+        label-placement="floating"
+        [(ngModel)]="userName"
+        placeholder="Escribe tu nombre aquí">
+      </ion-input>
+
+      <!-- Campo: número de mesa -->
+      <ion-input
+        class="custom-input"
+        label="Número de Mesa"
+        label-placement="floating"
+        type="number"
+        [(ngModel)]="numeroMesa"
+        placeholder="Ej: 5">
+      </ion-input>
+
+      <!-- Campo: cantidad de personas -->
+      <ion-input
+        class="custom-input"
+        label="Cantidad de Personas"
+        label-placement="floating"
+        type="number"
+        [(ngModel)]="cantidadPersonas"
+        placeholder="Ej: 2">
+      </ion-input>
+
+      <!-- Campo: comentarios -->
+      <ion-textarea
+        class="custom-input"
+        label="Comentarios (Opcional)"
+        label-placement="floating"
+        [(ngModel)]="comentarios"
+        placeholder="Ej: Sin cebolla, alergia al maní..."
+        [autoGrow]="true">
+      </ion-textarea>
+      
+      <!-- Botón para continuar -->
+      <ion-button 
+        expand="block" 
+        shape="round" 
+        (click)="goToHome()" 
+        [disabled]="!userName || !numeroMesa">
+        Continuar al Menú
+      </ion-button>
+    </div>
+
+    <!-- Información del local -->
+    <div class="footer-info">
+      <ion-grid>
+        <ion-row>
+          <!-- Columna ubicación y contacto -->
+          <ion-col size="6">
+            <h3>Ubicación</h3>
+            <p>Av. Victor Andrés Belaunde 596, Comas 15312, Peru</p>
+            <h3>Contacto:</h3>
+            <p>998625950</p>
+          </ion-col>
+
+          <!-- Columna horario -->
+          <ion-col size="6">
+            <h3>Horario de Atención</h3>
+            <p><strong>Lunes a Sábado:</strong><br>12:00 pm - 11:00 pm</p>
+            <p><strong>Domingos y Feriados:</strong><br>12:00 pm - 10:00 pm</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

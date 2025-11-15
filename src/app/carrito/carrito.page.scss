@@ -1,0 +1,142 @@
+/*
+ * ESTILOS GLOBALES DE LA PÁGINA DEL CARRITO
+ * Define los colores base para toda la página (Host) y la barra superior (Toolbar).
+ */
+:host {
+    --ion-background-color: #F8F3ED; /* Fondo principal de la página (color Crema suave) */
+    --ion-text-color: #5D4037; /* Color principal del texto (Marrón oscuro) */
+}
+
+/* Estilos para la barra de herramientas superior de Ionic */
+ion-toolbar {
+    --background: #F8F3ED; /* El fondo de la barra es el mismo que el de la página */
+    --color: #5D4037; /* El color del contenido (botones, etc.) es Marrón oscuro */
+    ion-title {
+        font-weight: bold; /* Título de la página en negrita */
+    }
+}
+
+/* Estilo para títulos de sección (como "Tu Pedido" o "Resumen de la Cuenta") */
+.section-title {
+    color: #5D4037; /* Color del texto Marrón oscuro */
+    font-size: 1.2rem; /* Tamaño de fuente ligeramente grande */
+    font-weight: 600; /* Semi-negrita */
+    margin-top: 1.5rem; /* Espacio superior */
+    margin-bottom: 0.8rem; /* Espacio inferior */
+}
+
+/* --- Estilo de la Tarjeta de Información del Cliente --- */
+.info-card {
+    --background: #EFEBE9; /* Fondo de la tarjeta (Crema un poco más intenso) */
+    color: #5D4037; /* Color del texto principal */
+    box-shadow: none; /* Elimina la sombra por defecto de las tarjetas */
+    border-radius: 16px; /* Bordes redondeados */
+    
+    ion-card-header {
+        padding-bottom: 0; /* Elimina el padding inferior del encabezado */
+    }
+    ion-card-title {
+        font-size: 1.1rem; /* Tamaño de título */
+        font-weight: bold;
+    }
+    ion-card-content p {
+        margin: 4px 0; /* Espaciado entre párrafos */
+        font-size: 0.95rem; 
+        color: #8D6E63; /* Color de texto secundario (Marrón claro) */
+        
+        strong {
+            color: #5D4037; /* Destaca la información importante (ej: nombre, mesa) */
+        }
+    }
+}
+
+/* --- Estilo de la Lista de Carrito --- */
+.carrito-list {
+    background: transparent; /* Hace transparente el fondo de la lista */
+    padding: 0;
+}
+
+/* Estilo individual de cada elemento de la lista (item) */
+.item-carrito {
+    --background: #fff; /* Fondo blanco para el item */
+    --padding-start: 12px;
+    --inner-padding-end: 8px;
+    border-radius: 12px; /* Bordes redondeados */
+    margin-bottom: 8px; /* Espacio entre items */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra sutil para un efecto flotante */
+    display: flex; /* Alineación flexible para centrar verticalmente */
+    align-items: center;
+}
+
+/* Contenedor de nombre y descripción del item */
+.item-info {
+    flex-grow: 1; /* Permite que ocupe todo el espacio disponible */
+    h3 {
+        font-size: 1rem; /* Nombre del producto */
+        font-weight: 600;
+        color: #5D4037;
+        margin: 0;
+    }
+    p {
+        font-size: 0.85rem; /* Descripción o cantidad */
+        color: #8D6E63;
+        margin: 0;
+    }
+}
+
+/* Contenedor del precio total y el botón de eliminar por item */
+.item-total {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espacio entre precio y botón */
+    
+    .total-price {
+        font-weight: bold;
+        color: #5D4037; /* Precio final del item destacado en marrón */
+        font-size: 1rem;
+    }
+}
+
+/* --- Estilo del Resumen de la Cuenta (Subtotal, Total) --- */
+.resumen-cuenta {
+    background: #fff; /* Fondo blanco */
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem; /* Espacio inferior antes de los botones */
+    
+    .linea {
+        display: flex;
+        justify-content: space-between; /* Alinea texto a izquierda y valor a derecha */
+        margin-bottom: 5px;
+        font-size: 0.95rem;
+        color: #8D6E63; /* Color suave para subtotal y descuentos */
+        
+        &.total {
+            /* Estilos especiales para la línea del total a pagar */
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #E0E0E0; /* Línea discontinua de separación */
+            font-size: 1.1rem; /* Fuente más grande */
+            color: #5D4037; /* Color principal */
+        }
+    }
+}
+
+/* --- Estilo de Botones de Acción (Enviar Pedido, Continuar) --- */
+.action-buttons {
+    margin-bottom: 1rem;
+    
+    ion-button {
+        height: 50px;
+        font-weight: bold;
+        text-transform: none; /* Evita que el texto esté en mayúsculas por defecto */
+        margin-bottom: 10px;
+        
+        /* Botón principal (Enviar Pedido) */
+        &:not([fill="clear"]) {
+            --background: #5D4037; /* Fondo Marrón */
+            --color: #ffffff; /* Texto blanco */
+        }
+    }
+}

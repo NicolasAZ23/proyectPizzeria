@@ -1,0 +1,7 @@
+{
+  "name": "proyectPizzeria",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

@@ -1,0 +1,343 @@
+/* ================================
+   Colores base y configuración general
+   ================================ */
+:host {
+  /* Define los colores principales del tema */
+  --ion-background-color: #F8F3ED; /* Fondo general */
+  --ion-text-color: #5D4037;       /* Color del texto */
+}
+
+ion-toolbar {
+  /* Personaliza la barra superior */
+  --background: #F8F3ED;
+  --padding-start: 16px;
+  --padding-end: 16px;
+
+  ion-title {
+    /* Estilo del texto en el toolbar */
+    font-size: 0.9rem;
+    color: #8D6E63;
+  }
+}
+
+/* ================================
+   Encabezado principal
+   ================================ */
+.header-content {
+  padding: 0 16px;
+
+  h1 {
+    /* Título principal */
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    /* Descripción o subtítulo */
+    color: #8D6E63;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
+
+    strong {
+      /* Palabras destacadas */
+      color: #5D4037;
+    }
+  }
+}
+
+/* ================================
+   Secciones generales
+   ================================ */
+.section {
+  margin-bottom: 2rem;
+}
+
+.section-header {
+  /* Cabecera de cada sección (título + acción) */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  margin-bottom: 1rem;
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+/* ================================
+   Promociones horizontales
+   ================================ */
+.promotions-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding: 0 16px;
+
+  &::-webkit-scrollbar {
+    display: none; /* Oculta scrollbar */
+  }
+}
+
+.promo-card {
+  /* Tarjeta individual de promoción */
+  flex: 0 0 150px;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+  img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+  }
+
+  h3, p {
+    margin: 0;
+    padding: 4px 12px;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+
+  p {
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding-bottom: 12px;
+  }
+}
+
+/* ================================
+   Categorías horizontales
+   ================================ */
+.category-scroll-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 0 16px;
+  margin-bottom: 1rem;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.category-wrapper {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 5px;
+}
+
+.category-item {
+  display: inline-block;
+  padding: 8px 0;
+  color: #8D6E63;
+  font-weight: 500;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease-in-out;
+  font-size: 0.95rem;
+}
+
+.category-item.selected {
+  /* Categoría seleccionada */
+  position: relative;
+  color: #5D4037;
+  font-weight: bold;
+}
+
+.category-item.selected::after {
+  /* Línea debajo de la categoría seleccionada */
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 3px;
+  background-color: #5D4037;
+  border-radius: 2px;
+}
+
+/* ================================
+   Lista de artículos
+   ================================ */
+ion-list {
+  background: transparent;
+  padding-top: 0;
+}
+
+.article-item-grid {
+  /* Tarjeta de producto o artículo */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  --background: #fff;
+  --padding-start: 12px;
+  --inner-padding-end: 12px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 12px;
+}
+
+.contenedor-principal {
+  /* Contenedor imagen + descripción */
+  display: flex;
+  align-items: flex-start;
+  flex-grow: 1;
+  margin-right: 12px;
+}
+
+.column-img {
+  /* Columna de la imagen del producto */
+  margin-right: 12px;
+
+  ion-thumbnail {
+    --size: 80px;
+    --border-radius: 12px;
+    margin: 0;
+  }
+}
+
+.column-description {
+  /* Columna de texto descriptivo */
+  flex-grow: 1;
+
+  ion-label {
+    padding: 0;
+    margin: 0;
+
+    h3 {
+      /* Nombre del producto */
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0 0 4px 0;
+      line-height: 1.2;
+      color: #5D4037;
+      white-space: normal;
+    }
+  }
+
+  p {
+    /* Descripción o detalle del producto */
+    font-size: 0.85rem;
+    color: #8D6E63;
+    margin: 4px 0 0 0;
+    line-height: 1.3;
+    white-space: normal;
+  }
+}
+
+/* ================================
+   Precio y controles de cantidad
+   ================================ */
+.article-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-shrink: 0;
+
+  .price {
+    /* Texto del precio */
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #5D4037;
+    margin-bottom: 8px;
+  }
+}
+
+.quantity-controls {
+  /* Botones + / - y cantidad */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+
+  span {
+    /* Número de cantidad */
+    font-size: 1.1rem;
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+    color: #5D4037;
+  }
+
+  ion-button {
+    /* Botones circulares */
+    --padding-start: 0;
+    --padding-end: 0;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    font-size: 1.5rem !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    &[fill="solid"] {
+      /* Botón + */
+      --background: #5D4037 !important;
+      --color: #ffffff !important;
+    }
+
+    &[fill="outline"] {
+      /* Botón - */
+      --background: #ffffff !important;
+      --border-color: #5D4037 !important;
+      --color: #5D4037 !important;
+      --border-width: 1px !important;
+    }
+  }
+}
+
+/* Variante vertical del contador */
+.article-price .quantity-controls.vertical {
+  flex-direction: column-reverse;
+  gap: 0.3rem;
+  margin-top: 0;
+}
+
+/* ================================
+   Botón flotante (Carrito)
+   ================================ */
+ion-fab ion-button {
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+  --background: #5D4037;
+  --color: #ffffff;
+  height: 56px;
+  font-weight: 600;
+  text-transform: none;
+
+  ion-icon {
+    margin-left: 0.5rem;
+  }
+}
+
+/* ================================
+   Estado vacío (sin productos)
+   ================================ */
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #8D6E63;
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
